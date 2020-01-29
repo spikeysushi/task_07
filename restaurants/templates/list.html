@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>List</title>
-    </head>
-    <body>
-        {% for restaurant in restaurants %}
-            <a href="{% url 'restaurant-detail' restaurant.id %}">
-                <ul>
-                    <li>{{restaurant.name}}</li>
-                    <li>{{restaurant.description}}</li>
-                    <li>{{restaurant.opening_time}}</li>
-                    <li>{{restaurant.closing_time}}</li>
-                </ul>
-            </a>
-        {% endfor %}
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <title>List</title>
+</head>
+
+
+<body>
+    {% for restaurant in restaurants %}
+    <a href="{% url 'restaurant-detail' restaurant.id %}">
+        <ul>
+            <li>{{restaurant.name}}</li>
+            <li>{{restaurant.description}}</li>
+            <li>{{restaurant.opening_time}}</li>
+            <li>{{restaurant.closing_time}}</li>
+
+
+        </ul>
+    </a>
+    <a href="{% url 'restaurant-update' restaurant.id %}">
+        Update
+    </a>
+    <a href="{% url 'restaurant-delete' restaurant.id %}">
+        Delete
+    </a>
+
+    {% endfor %}
+
+</body>
+
 </html>
